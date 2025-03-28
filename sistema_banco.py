@@ -3,6 +3,14 @@
 #print("Depositar")
 #print("Sacar")
 
+saldo = 0
+numero_saques = 0
+limites_saques = 3
+usuarios =[]#criei uma lista vazia , pois serão adicionados valores posteriormente
+contas = []
+agencia='0001'
+
+
 def menu():
     print('''
         **********Menu**********
@@ -15,3 +23,16 @@ def menu():
         (q) Sair
     ''')
     return input('Qual opção deseja')
+
+def deposito(valor,saldo):
+    #  vou receber o valor do depósito e somar ao saldo
+    if valor > 0 :
+        saldo += valor
+        #print mostrando o valor depositado
+        print(f'Você depositou R${valor}')      
+    else:
+        print('Valor do deposito Ínválido.Verifique a quantia digitada.')
+    
+    return saldo
+
+    
