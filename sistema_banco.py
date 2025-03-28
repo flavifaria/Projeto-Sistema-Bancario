@@ -4,6 +4,7 @@
 #print("Sacar")
 
 saldo = 0
+limite = 500
 numero_saques = 0
 limites_saques = 3
 usuarios =[]#criei uma lista vazia , pois serão adicionados valores posteriormente
@@ -35,4 +36,20 @@ def deposito(valor,saldo):
     
     return saldo
 
-    
+def saque(saque,saldo):
+   global  numero_saques,limites,limites_saques
+    #De acordo com a documentação Python , váriaveis globais não ficam presas ao limite do escopo da função.
+   if numero_saques >= limites_saques:
+    print('Você atingiu o limite de saques de sua conta.Tente novamente no proximo dia útil')
+   else:
+        if saque <= 0:
+            print('Saque Inválido.Verifique o valor e tente novamente.')
+        elif saque > limite :
+            print('Valor limite excedido.Verifique o valor e tente novamente.')
+        elif saque > saldo :
+            print('Saldo insuficiênte.Verifique o valor e tente novamente.')
+        else:
+            saldo -= saque
+            numero_saques += 1
+            
+        return saldo        
